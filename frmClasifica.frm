@@ -1373,6 +1373,14 @@ Dim Posicion As Integer
                 If Val(ExcelSheet.Cells(I, 1).Value) > 0 Then
                         ' Nro.Entrada
                         Albaran = Val(ExcelSheet.Cells(I, 1).Value) '(I, 2)
+                        
+                        
+                        '[Monica]25/01/2016: para el caso de anna si el albaran es de longitud > 7 recortamos a 7
+                        If Len(CStr(Albaran)) > 7 Then
+                            Albaran = Mid(CStr(Albaran), Len(CStr(Albaran)) - 6, 7)
+                        End If
+                        
+                        
                         ' Fecha entrada
                         FecAlbaran = Format(ExcelSheet.Cells(I, 3).Value, "yyyy-mm-dd") '(I, 11)
                         ' socio
